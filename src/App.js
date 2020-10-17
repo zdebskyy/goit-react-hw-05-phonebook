@@ -5,6 +5,8 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import Filter from "./components/Filter/Filter";
 import { v4 as uuidv4 } from "uuid";
+import "./App.css";
+import { CSSTransition } from "react-transition-group";
 
 export default class App extends Component {
   state = {
@@ -57,9 +59,15 @@ export default class App extends Component {
       <Layout>
         <AppHeader />
         <ContactForm onAddContact={this.addContact} allContacts={contacts} />
-        {contacts.length > 1 && (
+        <CSSTransition
+          in={contacts.length > 1}
+          timeout={250}
+          classNames="filterIn"
+          unmountOnExit
+        >
           <Filter value={filter} onFilter={this.onChangeFilter} />
-        )}
+        </CSSTransition>
+
         <ContactList
           contacts={filteredContacts}
           onRemoveContact={this.removeContact}
