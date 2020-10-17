@@ -1,9 +1,9 @@
 import React from "react";
+import "./AppHeader.css";
 const AppHeader = () => {
   return (
     <header>
-      <h2>PhoneBook</h2>
-      <hr></hr>
+      <h2 className="logo">PhoneBook</h2>
     </header>
   );
 };

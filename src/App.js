@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AppHeader from "./components/AppHeader";
+import AppHeader from "./components/AppHeader/AppHeader";
 import Layout from "./components/Layout/Layout";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
@@ -29,6 +29,7 @@ export default class App extends Component {
       };
     });
   };
+
   render() {
     const { contacts } = this.state;
     return (

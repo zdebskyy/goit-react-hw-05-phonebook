@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ContactForm.css";
 import InputForm from "../InputForm/InputForm";
 export default class ContactForm extends Component {
   state = {
@@ -9,6 +10,7 @@ export default class ContactForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.onAddContact(this.state);
+    this.setState({ name: "", number: "" });
   };
 
   handleInput = (value) => {
@@ -21,7 +23,7 @@ export default class ContactForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="form">
         <InputForm
           label="Name"
           type="text"
@@ -36,7 +38,9 @@ export default class ContactForm extends Component {
           placeholder="Enter your number"
           onInput={this.handleNumber}
         />
-        <button type="submit">Confirm</button>
+        <button type="submit" className="buttonSubmit">
+          Add contact
+        </button>
       </form>
     );
   }
