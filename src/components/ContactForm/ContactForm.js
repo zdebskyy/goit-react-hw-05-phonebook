@@ -26,7 +26,6 @@ export default class ContactForm extends Component {
     if (!name || !number) {
       return;
     }
-
     const contactName = this.props.allContacts.map((el) => {
       return el.name;
     });
@@ -45,10 +44,10 @@ export default class ContactForm extends Component {
 
   render() {
     const { name, number } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit} className="form">
         <ToastContainer />
-
         <InputForm
           label="Name"
           type="text"
@@ -58,7 +57,7 @@ export default class ContactForm extends Component {
         />
         <InputForm
           label="Number"
-          type="number"
+          type="tel"
           value={number}
           placeholder="Enter your number"
           onInput={this.handleNumber}
