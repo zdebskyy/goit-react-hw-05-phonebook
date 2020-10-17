@@ -1,18 +1,26 @@
 import React from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./ContactList.css";
 const ContactList = ({ contacts, onRemoveContact }) => {
   return (
-    <ul>
+    <TransitionGroup component="ul" className="contactsList">
       {contacts.map((contact) => (
-        <li key={contact.id}>
-          <span>
-            {contact.name} : {contact.number}
-          </span>
-          <button type="button" onClick={() => onRemoveContact(contact.id)}>
-            x
-          </button>
-        </li>
+        <CSSTransition key={contact.id} timeout={250} classNames="contactIn">
+          <li className="contactItem">
+            <span className="contactText">
+              {contact.name} : {contact.number}
+            </span>
+            <button
+              type="button"
+              className="removeBtn"
+              onClick={() => onRemoveContact(contact.id)}
+            >
+              X
+            </button>
+          </li>
+        </CSSTransition>
       ))}
-    </ul>
+    </TransitionGroup>
   );
 };
 

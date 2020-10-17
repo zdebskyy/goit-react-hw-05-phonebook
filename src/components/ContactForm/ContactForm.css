@@ -9,6 +9,7 @@
   height: 280px;
   box-shadow: 3px 3px 10px 2px lightgray;
   border-radius: 5px;
+  margin-bottom: 30px;
 }
 
 .buttonSubmit {
